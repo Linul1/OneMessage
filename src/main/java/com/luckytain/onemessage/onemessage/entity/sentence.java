@@ -1,20 +1,23 @@
 package com.luckytain.onemessage.onemessage.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Data
 public class sentence {
+    @TableId(value = "id",type = IdType.AUTO)
     private int id;
     private String sentence;
     private String type;
     private String provenance;
     private String author;
-    private int uploader_uid;
-    private Timestamp upload_time;
-    private Timestamp created_time;
-    private int length;
+    private int uploader_uid; // mp默认开了下划线转驼峰... 搞半天我以为我写错了
+    private Timestamp uploadtime;
+    private Timestamp createdtime;
+    private int length = this.sentence.length();
     private int mark;
 }
