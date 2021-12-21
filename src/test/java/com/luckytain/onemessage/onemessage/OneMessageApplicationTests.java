@@ -59,7 +59,7 @@ class OneMessageApplicationTests {
 
     @Test
     public void testa(){
-        sentence s = sentenceService.getRandomOneByType("Test");
+        sentence s = sentenceService.getById(7);
         System.out.println(s.toString());
     }
 

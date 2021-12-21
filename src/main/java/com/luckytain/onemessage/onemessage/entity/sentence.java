@@ -18,6 +18,6 @@ public class sentence {
     private int uploader_uid; // mp默认开了下划线转驼峰... 搞半天我以为我写错了
     private Timestamp uploadtime;
     private Timestamp createdtime;
-    private int length = this.sentence.length();
+    private int length;
     private int mark;
 }

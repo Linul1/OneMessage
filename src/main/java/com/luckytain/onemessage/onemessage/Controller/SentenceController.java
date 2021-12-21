@@ -27,11 +27,14 @@ public class SentenceController {
     public R getOneByID(int id){
         try {
             sentence s = sentenceService.getById(id);
+            if (s == null){
+                return new R(false, "没有这个ID");
+            }
             return new R(true, s);
         }
         catch (Exception e){
-            System.out.println(e);
-            return new R(false, "没有这个ID");
+//            System.out.println(e);
+            return new R(false);
         }
     }
 
@@ -58,7 +61,22 @@ public class SentenceController {
 
     @RequestMapping("/update")
     public R updateone(@RequestBody sentence s){
-        return null;
+        if (sentenceService.updateOne(s)){
+            return new R(true, "修改成功");
+        }
+        else {
+            return new R(false, "修改失败");
+        }
 
+    }
+
+    @RequestMapping("/delete")
+    public R deleteoneById(String id){
+        if (sentenceService.removeById(id)){
+            return new R(true, "删除成功");
+        }
+        else{
+            return new R(false, "删除失败");
+        }
     }
 }
