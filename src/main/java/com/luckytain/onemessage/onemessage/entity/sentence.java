@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 @Data
 public class sentence {
     @TableId(value = "id",type = IdType.AUTO)
-    private int id;
+    private Integer id;
     private String sentence;
     private String type;
     private String provenance;
