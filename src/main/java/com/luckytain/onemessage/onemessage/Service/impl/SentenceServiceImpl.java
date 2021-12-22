@@ -38,7 +38,7 @@ public class SentenceServiceImpl extends ServiceImpl<SentenceMapper, sentence> i
         if (
                 s.getSentence() == null || s.getType() == null || s.getProvenance() == null || s.getAuthor() == null ||
                 s.getSentence().equalsIgnoreCase("") || s.getProvenance().equalsIgnoreCase("") ||
-                s.getAuthor().equalsIgnoreCase("")
+                s.getAuthor().equalsIgnoreCase("") || s.getType().equalsIgnoreCase("")
         ){
             return false;
         }
