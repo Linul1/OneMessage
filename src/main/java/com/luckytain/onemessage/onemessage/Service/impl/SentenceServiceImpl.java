@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class SentenceServiceImpl extends ServiceImpl<SentenceMapper, sentence> implements SentenceService {
@@ -82,5 +83,12 @@ public class SentenceServiceImpl extends ServiceImpl<SentenceMapper, sentence> i
             updated.setAuthor(s.getAuthor());
         }
         return sentenceService.updateById(updated);
+    }
+
+    @Override
+    public List<Object> getallType() {
+        QueryWrapper<sentence> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("type").groupBy("type");
+        return sentenceService.listObjs(queryWrapper);
     }
 }

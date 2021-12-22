@@ -7,7 +7,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -59,7 +58,7 @@ class OneMessageApplicationTests {
 
     @Test
     public void testa(){
-        sentence s = sentenceService.getById(7);
+        sentence s = sentenceService.getById(1);
         System.out.println(s.toString());
     }
 
@@ -79,10 +78,9 @@ class OneMessageApplicationTests {
     }
 
     @Test
-    public void testTime(){
-        final SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Timestamp ts = Timestamp.from(Instant.now());
-        System.out.println(sdf1.format(ts));
+    public void getalltype(){
+        List<Object> l = sentenceService.getallType();
+        System.out.println(l);
     }
 
 }

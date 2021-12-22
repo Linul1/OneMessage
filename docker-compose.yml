@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  web:
+    image: onemessage:latest
+    environment:
+      MYSQL_HOST: 127.0.0.1:3306
+      MYSQL_DBNAME: onemessage
+      MYSQL_USERNAME: onemessage
+      MYSQL_PASSWORD: password
+      PORT: 8080
+    ports:
+      - 8080:8080

@@ -4,15 +4,15 @@ import com.luckytain.onemessage.onemessage.Controller.utils.R;
 import com.luckytain.onemessage.onemessage.Service.SentenceService;
 import com.luckytain.onemessage.onemessage.entity.sentence;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
+import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class SentenceController {
     @Autowired
@@ -77,6 +77,17 @@ public class SentenceController {
         }
         else{
             return new R(false, "删除失败");
+        }
+    }
+
+    @RequestMapping("/getalltype")
+    public R getAllType(){
+        List<Object> l = sentenceService.getallType();
+        if (l != null){
+            return new R(true, l);
+        }
+        else {
+            return new R(false);
         }
     }
 }

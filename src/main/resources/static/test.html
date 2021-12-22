@@ -1,0 +1,14 @@
+<p id="sentence"><a id="sentence_text">获取中...</a></p>
+
+<!-- 现代写法，推荐(不支持 IE) -->
+<script>
+    fetch('http://127.0.0.1:8080/api/getonebytype?type=Test')
+        .then(response => response.json())
+        .then(data => {
+            const sentence = document.getElementById('sentence_text')
+            sentence.innerText = data.data.sentence
+        })
+        .catch(console.error)
+</script>
+
+<!-- https://developer.hitokoto.cn/sentence/demo/#%E7%BD%91%E9%A1%B5 -->

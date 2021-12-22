@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.luckytain.onemessage</groupId>
     <artifactId>OneMessage</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>OneMessage</name>
     <description>OneMessage</description>
     <properties>

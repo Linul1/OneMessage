@@ -1,0 +1,17 @@
+server:
+  port : ${PORT:8080}
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://${MYSQL_HOST:127.0.0.1:3306}/${MYSQL_DBNAME:onemessage}?useUnicode=true&characterEncoding=UTF-8
+      username: ${MYSQL_USERNAME:onemessage}
+      password: ${MYSQL_PASSWORD:password}
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
