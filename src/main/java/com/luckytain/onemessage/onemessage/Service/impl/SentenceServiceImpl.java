@@ -91,4 +91,15 @@ public class SentenceServiceImpl extends ServiceImpl<SentenceMapper, sentence> i
         queryWrapper.select("type").groupBy("type");
         return sentenceService.listObjs(queryWrapper);
     }
+
+    @Override
+    public sentence getRandomOne() {
+        try {
+            QueryWrapper<sentence> queryWrapper = new QueryWrapper<>();
+            return sentenceService.getOne(queryWrapper.last("ORDER BY RAND() LIMIT 0,1"));
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
 }

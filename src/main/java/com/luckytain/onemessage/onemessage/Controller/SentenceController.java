@@ -33,7 +33,6 @@ public class SentenceController {
             return new R(true, s);
         }
         catch (Exception e){
-//            System.out.println(e);
             return new R(false);
         }
     }
@@ -41,6 +40,17 @@ public class SentenceController {
     @RequestMapping("/getonebytype")
     public R getoneByType(String type){
         sentence s = sentenceService.getRandomOneByType(type);
+        if (s != null){
+            return new R(true, s);
+        }
+        else {
+            return new R(false, "错误");
+        }
+    }
+
+    @RequestMapping("/getone")
+    public R getone(){
+        sentence s = sentenceService.getRandomOne();
         if (s != null){
             return new R(true, s);
         }

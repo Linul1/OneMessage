@@ -10,4 +10,5 @@ public interface SentenceService extends IService<sentence> {
     boolean addOne(sentence s);
     boolean updateOne(sentence s);
     List<Object> getallType();
+    sentence getRandomOne();
 }
