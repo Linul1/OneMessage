@@ -1,5 +1,6 @@
 package com.luckytain.onemessage.onemessage.Controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.luckytain.onemessage.onemessage.Controller.utils.R;
 import com.luckytain.onemessage.onemessage.Service.SentenceService;
 import com.luckytain.onemessage.onemessage.entity.sentence;
@@ -20,11 +21,17 @@ public class SentenceController {
 
     @RequestMapping("/getall")
     public R getall(){
+        if (!StpUtil.isLogin()){
+            return new R(false, "你没有权限");
+        }
         return new R(true, sentenceService.list());
     }
 
     @RequestMapping("/getbyid")
     public R getOneByID(int id){
+        if (!StpUtil.isLogin()){
+            return new R(false, "你没有权限");
+        }
         try {
             sentence s = sentenceService.getById(id);
             if (s == null){
@@ -61,6 +68,9 @@ public class SentenceController {
 
     @RequestMapping("/add")
     public R addone(@RequestBody sentence s){
+        if (!StpUtil.isLogin()){
+            return new R(false, "你没有权限");
+        }
         if (sentenceService.addOne(s)){
             return new R(true, s);
         }
@@ -71,6 +81,9 @@ public class SentenceController {
 
     @RequestMapping("/update")
     public R updateone(@RequestBody sentence s){
+        if (!StpUtil.isLogin()){
+            return new R(false, "你没有权限");
+        }
         if (sentenceService.updateOne(s)){
             return new R(true, "修改成功");
         }
@@ -82,6 +95,9 @@ public class SentenceController {
 
     @RequestMapping("/delete")
     public R deleteoneById(String id){
+        if (!StpUtil.isLogin()){
+            return new R(false, "你没有权限");
+        }
         if (sentenceService.removeById(id)){
             return new R(true, "删除成功");
         }
